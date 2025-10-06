@@ -1,0 +1,8 @@
+Старт проекта - npm run dev
+Сборка для продакшена - npm run build
+Предпросмотр сборки - npm run preview
+
+Запуск fastapi - uvicorn app.main:app --reload
+Миграции через Alembic - alembic revision --autogenerate -m "описание изменений"
+Применить миграцию - alembic upgrade head
+Текущая версия миграции - alembic current
