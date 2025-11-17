@@ -1,13 +1,12 @@
+git clone https://github.com/MrSikkel/RIP
+cd папка_проекта
+
 cd backend
-python -m venv venv (если нет)
+python -m venv venv
 .\venv\Scripts\activate
 pip install -r requirements.txt
 uvicorn main:app --reload
-http://localhost:8000/posts/
-http://localhost:8000/docs
-
 
 cd frontend
 npm install
 npm run dev
-http://localhost:5173
