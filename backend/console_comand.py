@@ -23,10 +23,6 @@ def print_posts(posts):
     console.print(table)
 
 
-# ─────────────────────────────────────────────
-# ЛОГИЧЕСКИЕ ФУНКЦИИ (используются меню)
-# ─────────────────────────────────────────────
-
 def list_posts_logic(skip=0, limit=10):
     db = database.SessionLocal()
     try:
@@ -113,10 +109,7 @@ def delete_post_logic(post_id: int):
         db.close()
 
 
-# ─────────────────────────────────────────────
-# CLI КОМАНДЫ TYPER (обёртки)
-# ─────────────────────────────────────────────
-
+#Обёртки
 @app.command("list")
 def list_posts(
     skip: int = typer.Option(0),
@@ -154,10 +147,8 @@ def delete_post(post_id: int):
     delete_post_logic(post_id)
 
 
-# ─────────────────────────────────────────────
-# МЕНЮ (ручной режим)
-# ─────────────────────────────────────────────
 
+#Меню
 def menu_loop():
     while True:
         console.print("\nВыберете действие:")
@@ -230,6 +221,6 @@ def menu_loop():
             console.print("[red]Неверный выбор[/red]")
 
 
-# Точка входа ────────────────────────────────
+# Точка входа 
 if __name__ == "__main__":
     menu_loop()
