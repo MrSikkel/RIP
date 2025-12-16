@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 20px;
+        }
+
+        #chat {
+            list-style: none;
+            padding: 0;
+            max-width: 600px;
+            margin-bottom: 10px;
+        }
+
+        #chat li {
+            padding: 8px 12px;
+            margin-bottom: 6px;
+            border-radius: 8px;
+            max-width: 80%;
+        }
+
+        .me {
+            background: #cca7ce;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .other {
+            background: #cce0ff;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+
+        #chat-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input, button {
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        #controls {
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>WebSocket чат</h2>
+
+<div id="controls">
+    <input id="username" placeholder="Ваше имя" />
+    <br><br>
+</div>
+
+<div id="chat-container">
+    <ul id="chat"></ul>
+</div>
+
+<input id="message" placeholder="Введите сообщение" />
+<button onclick="sendMessage()">Отправить</button>
+
+<script>
+    const ws = new WebSocket("ws://localhost:8000/ws/chat");
+
+    const chat = document.getElementById("chat");
+    const messageInput = document.getElementById("message");
+    const usernameInput = document.getElementById("username");
+
+    ws.onmessage = (event) => {
+        addMessage(event.data, "other");
+    };
+
+    function sendMessage() {
+        const text = messageInput.value.trim();
+        const username = usernameInput.value.trim();
+
+        if (!text || !username) {
+            alert("Введите имя и сообщение");
+            return;
+        }
+
+        const fullMessage = `${username}: ${text}`;
+
+        ws.send(fullMessage);
+        addMessage(fullMessage, "me");
+
+        messageInput.value = "";
+    }
+
+    function addMessage(text, type) {
+        const li = document.createElement("li");
+        li.textContent = text;
+        li.className = type;
+        chat.appendChild(li);
+    }
+</script>
+
+</body>
+</html>

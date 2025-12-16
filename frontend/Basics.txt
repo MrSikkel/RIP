@@ -6,3 +6,8 @@
 Миграции через Alembic - alembic revision --autogenerate -m "описание изменений"
 Применить миграцию - alembic upgrade head
 Текущая версия миграции - alembic current
+
+
+Запуск чата:
+npm install react-router-dom localforage match-sorter sort-by
+npm i baseline-browser-mapping@latest -D
