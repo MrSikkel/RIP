@@ -2,3 +2,5 @@ fastapi[all]
 uvicorn[standard]
 pydantic
 sqlalchemy>=2.0
+typer[all]
+rich
