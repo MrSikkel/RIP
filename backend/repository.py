@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from . import models, schemas, auth
+from backend import models, schemas, auth
 
 class PostRepository:
     def __init__(self, db: Session):

@@ -1,4 +1,3 @@
-import React from "react";
 import { createBrowserRouter, RouterProvider, Link, Navigate, Outlet } from "react-router-dom";
 import ItemsPage from "./pages/ItemsPage";
 import ChatPage from "./pages/ChatPage";

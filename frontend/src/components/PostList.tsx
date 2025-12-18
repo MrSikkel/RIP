@@ -9,7 +9,7 @@ export type Item = {
   text: string;
 };
 
-const API_URL = "http://localhost:8000/posts";
+const API_URL = "/api/posts";
 
 const getHeaders = () => {
   const token = localStorage.getItem("token");

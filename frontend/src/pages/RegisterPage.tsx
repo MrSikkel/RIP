@@ -14,7 +14,7 @@ const RegisterPage = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:8000/register", {
+      const res = await fetch("/api/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password, password_confirm: passwordConfirm }),
@@ -23,8 +23,8 @@ const RegisterPage = () => {
       const data = await res.json();
       localStorage.setItem("token", data.access_token);
       navigate("/");
-    } catch (e) {
-      alert("Ошибка: " + e.message);
+    } catch (e: any) {
+      alert("Ошибка: " + (e.message || "Неизвестная ошибка"));
     }
   };
 
