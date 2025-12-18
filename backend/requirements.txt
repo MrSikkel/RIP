@@ -4,3 +4,7 @@ pydantic
 sqlalchemy>=2.0
 typer[all]
 rich
+passlib[bcrypt]
+python-jose[cryptography]
+python-multipart
+bcrypt==4.2.0

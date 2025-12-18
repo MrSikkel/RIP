@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import type { Item } from "./PostList";
+import "../index.css";
 
 type ItemFormProps = {
   onSubmit: (item: Omit<Item, "id">) => void;
@@ -16,7 +17,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ onSubmit, initialData, onCancel }) 
     if (initialData) {
       setTitle(initialData.title ?? "");
       setAuthor(initialData.author ?? "");
-      setText(initialData.text ?? ""); // Используем text
+      setText(initialData.text ?? ""); 
     } else {
       setTitle("");
       setAuthor("");
@@ -37,7 +38,6 @@ const ItemForm: React.FC<ItemFormProps> = ({ onSubmit, initialData, onCancel }) 
       text: text.trim(),
     });
 
-    // Очищаем поля только если мы в режиме создания
     if (!initialData) {
       setTitle("");
       setAuthor("");
@@ -52,6 +52,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ onSubmit, initialData, onCancel }) 
           Заголовок:
           <input
             type="text"
+            className="add-item-input"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Название"
@@ -65,6 +66,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ onSubmit, initialData, onCancel }) 
           Автор:
           <input
             type="text"
+            className="add-item-input"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
             placeholder="Автор"
@@ -78,6 +80,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ onSubmit, initialData, onCancel }) 
           Описание:
           <input
             type="text"
+            className="add-item-input"
             value={text} // Используем text
             onChange={(e) => setText(e.target.value)} // Обработчик для text
             placeholder="Описание"
@@ -87,7 +90,7 @@ const ItemForm: React.FC<ItemFormProps> = ({ onSubmit, initialData, onCancel }) 
       </div>
 
       <div style={{ marginTop: 8 }}>
-        <button type="submit">{initialData ? "Сохранить" : "Добавить"}</button>
+        <button className="submit-button" type="submit">{initialData ? "Сохранить" : "Добавить"}</button>
         {onCancel && (
           <button type="button" onClick={onCancel} style={{ marginLeft: 8 }}>
             Отмена

@@ -1,4 +1,5 @@
 import ItemList from "../components/PostList";
+import "../index.css";
 
 const ItemsPage = () => {
   return (

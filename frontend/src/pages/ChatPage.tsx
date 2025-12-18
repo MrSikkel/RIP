@@ -62,13 +62,24 @@ const ChatPage = () => {
     <div>
       <h1>Чат</h1>
 
-      <input
-        placeholder="Ваше имя"
-        value={author}
-        onChange={(e) => setAuthor(e.target.value)}
-      />
-
-      <div style={{ margin: "10px 0" }}>
+      <div className="rega">
+        <input
+          className="rega-input"
+          placeholder="Ваше имя"
+          value={author}
+          onChange={(e) => setAuthor(e.target.value)}
+        />
+        
+        <input
+          placeholder="Сообщение"
+          className="message-input"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <button onClick={sendMessage}>Отправить</button>
+        
+      </div>
+      <div className="chat" style={{ margin: "10px 0" }}>
         {messages.map((m, i) => (
           <div
             key={i}
@@ -81,13 +92,6 @@ const ChatPage = () => {
           </div>
         ))}
       </div>
-
-      <input
-        placeholder="Сообщение"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button onClick={sendMessage}>Отправить</button>
     </div>
   );
 };

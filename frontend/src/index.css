@@ -95,3 +95,62 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+.rega{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: max-content;
+  width: max-content;
+}
+.rega-input{
+  width: 300px;
+  height: 35px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: solid 2px white;
+  padding-left: 5%;
+  font-size: 18px;
+}
+.rega-button{
+  width: max-content;
+  background-color: white;
+  color: black;
+  font-weight: 600;
+}
+.add-item-input{
+  margin-bottom: 30px;
+  margin-left: 30px;
+  width: 200px;
+  height: 25px;
+  border: none;
+  border-bottom: solid 2px white;
+  padding-left: 5%;
+  font-size: 18px;
+}
+.exit-button{
+  background-color: red;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-top: 50px;
+  margin-right: 50px;
+}
+.submit-button{
+  background-color: green;
+}
+.message-input{
+  width: 300px;
+  height: 90px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: solid 2px white;
+  padding-left: 5%;
+  font-size: 18px;
+}
+.chat{
+  border: 1px solid white;
+  height: 300px;
+  border-radius: 30px;
+  padding: 5%;
+}
